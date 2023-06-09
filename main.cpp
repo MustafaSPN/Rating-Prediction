@@ -9,7 +9,7 @@
 
 int main() {
     std::fstream inputFile;
-    inputFile.open("train.csv", std::ios::in);
+    inputFile.open("Dataset/train.csv", std::ios::in);
     if (!inputFile.is_open()) {
         std::cout << "File could not be opened." << std::endl;
     }
@@ -90,14 +90,14 @@ int main() {
     }
 
 
-    inputFile.open("test.txt", std::ios::in);
+    inputFile.open("Dataset/test.txt", std::ios::in);
     std::getline(inputFile, line);
     if (!inputFile.is_open()) {
         std::cout << "Test input file could not be opened." << std::endl;
     }
 
     std::ofstream outputFile;
-    outputFile.open("prediction.txt", std::ios::out);
+    outputFile.open("Dataset/prediction.txt", std::ios::out);
     if (!outputFile.is_open()) {
         std::cout << "OutputFile could not be opened." << std::endl;
     }
@@ -184,7 +184,7 @@ int main() {
         outputFile << a << "," << ((sum1 / count1) + (sum2 / count2)+(user[b-1].getAverage())+(movie[c-1].getAverage())) / 4 << std::endl;
 
     }
-    std::cout << "All predictions were be done. Please check prediction.txt " << std::endl;
+    std::cout << "All predictions were be done. Please check Dataset/prediction.txt " << std::endl;
 
     std::cout << "Running time: " << (std::clock() / (int) CLOCKS_PER_SEC) / 60 << ":"
               << std::setfill('0') << std::setw(2) << (std::clock() / (int) CLOCKS_PER_SEC) % 60;
